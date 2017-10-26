@@ -76,6 +76,7 @@ void compareDigitToMap(int digi, int count, int cifry) {
 void fillRawVector(std::vector<int> *vector, int n, int cifry) {
 
 	parseEachDigit(n, cifry);
+
 }
 
 
