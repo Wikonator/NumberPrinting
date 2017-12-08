@@ -27,7 +27,7 @@ namespace Bank
 
 	static const char* stovky = "sto";
 
-	static const char* naEnte[] = { chyba, "tisic", "milion", "miliarda", "bilion", "trilion" };
+	static const char* mocniny[] = { chyba, "tisic", "milion", "miliarda", "bilion", "trilion" };
 
 	static const char* medzera = " ";
 
@@ -41,7 +41,7 @@ namespace Bank
 	private :
 		void initBuf(); // makes the buffer
 		void vymazBuffer(); // erases the buffer
-		void medzera(); // adds a space
+		void space(); // adds a space
 		void addToBuffer(const char* string); // paste to the end of the buffer
 
 	public :
@@ -51,8 +51,8 @@ namespace Bank
 		void setCislo(const uint64_t num) { cislo = num; }
 		uint64_t getCislo() const { return cislo; } // const lebo gettery by mali byt const
 	
-		const char* words();
-		const char* words( const uint64_t num );
+		const char* konverzia();
+		const char* konverzia( const uint64_t num );
 	
 		uint64_t operator = ( const uint64_t num);
 	};

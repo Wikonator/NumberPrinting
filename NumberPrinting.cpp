@@ -6,8 +6,9 @@
 
 #include "stdafx.h"
 #include "Header.h"
-#include <cstdio>
-#include <cstdint>
+
+using namespace Bank;
+
 
 
 int main() {
