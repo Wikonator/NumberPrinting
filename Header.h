@@ -5,12 +5,55 @@
 
 */ 
 
-#include <string>
+#include <cstdio>
 #include <cstring>
-#include <vector>
+#include <cmath>
+#include <cstdint>
+#include <cstdlib>
 
-void parseEachDigit(int x, int cifry);
-void compareDigitToMap(int digit, int cifry);
-void fillRawVector(std::vector<int> &vec, int digit, int cifry);
+#define MAXLENGTH 1024
 
-int wordNumberParser(int);
+#define MAXNUMBER 999999999999999999
+
+namespace Bank
+{
+	static const char* chyba = "error"; // why must this be const?
+
+	static const char* jednotky[] = { "jeden", "dva", "tri" ,"styri" , "pat", "sest", "sedem", "osem", "devat" };
+
+	static const char* nast[] = { "desat", "jedenast", "dvanast", "trinast", "strnast", "patnast", "sestnast", "sedemnast", "osemnast", "devatnast" };
+
+	static const char* desiatky[] = { chyba, chyba, "dvadsat", "tridsat", "styridsat", "patdesiat", "sestdesiat", "sedemdesiat", "osemdesiat", "devatdesiat" };
+
+	static const char* stovky = "sto";
+
+	static const char* naEnte[] = { chyba, "tisic", "milion", "miliarda", "bilion", "trilion" };
+
+	static const char* medzera = " ";
+
+
+	class cifrySlovami {
+
+		uint64_t cislo = 0;		// using 64bit integer type - unsigned long long
+		size_t bufferLength = 0;	// sets length of the buffer, size_t is unsigned int (for the string length)
+		char* buffer = nullptr; // pointer to the first character in a buffer where the word is pasted together (initialized to 0)
+		
+	private :
+		void initBuf(); // makes the buffer
+		void vymazBuffer(); // erases the buffer
+		void medzera(); // adds a space
+		void addToBuffer(const char* string); // paste to the end of the buffer
+
+	public :
+		cifrySlovami() : cislo(0) {}
+		cifrySlovami(const uint64_t num) : cislo(num) {}
+		~cifrySlovami(); // destrukt
+		void setCislo(const uint64_t num) { cislo = num; }
+		uint64_t getCislo() const { return cislo; } // const lebo gettery by mali byt const
+	
+		const char* words();
+		const char* words( const uint64_t num );
+	
+		uint64_t operator = ( const uint64_t num);
+	};
+};
