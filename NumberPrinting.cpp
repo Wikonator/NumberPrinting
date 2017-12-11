@@ -4,30 +4,30 @@
 
 #pragma once
 
+#include <cstdio>
+#include <cstdint>
 #include "stdafx.h"
 #include "Header.h"
 
+using namespace std;
 using namespace Bank;
 
 
 
 int main() {
 
-	n = 1274;
+	Bank::cifrySlovami toto;
+	uint64_t cislo;
 
-	int Stringy = wordNumberParser(n);
-
-	std::vector<int> rawVector;
-
-	fillRawVector(rawVector, n, Stringy);
-	compareDigitsToMap(banks, rawVector);
-
+	cislo = 3; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
+	cislo = 10012; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
+	cislo = 99578425; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
+	cislo = 132587459342; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
+	
 	return 0;
 }
 
-
-
-
+/*  old version 
 
 int wordNumberParser(int x) {
 
@@ -145,3 +145,4 @@ void parseEachDigit(int x, int cifry, std::vector<int> &vector) {
 }
 
 
+*/

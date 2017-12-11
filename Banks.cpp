@@ -1,4 +1,6 @@
 #include "Header.h"
+#include "stdafx.h"
+
 
 using namespace Bank;
 
@@ -54,7 +56,13 @@ void cifrySlovami::addToBuffer(const char* string) {
 	}
 }
 
-// converting numbers to words 
+// konverzia bez parametru
+const char* cifrySlovami::konverzia() {
+
+	return konverzia(cislo);
+}
+
+// pretazena s parametrom 
 const char* cifrySlovami::konverzia( const uint64_t number ) {
 
 	if (number > MAXNUMBER) {
@@ -89,9 +97,55 @@ const char* cifrySlovami::konverzia( const uint64_t number ) {
 		}
 	}
 
-	// hundreds
+	// stovky
 	if ((n < 1000) && (n >= 100)) {
 
-
+		uint64_t zvysok = ( ( n - ( n % 100 ) ) /  100 );
+		cifrySlovami objektZaujmu(zvysok);
+		space();
+		addToBuffer(objektZaujmu.konverzia());
+		space();
+		addToBuffer(stovky);
+		n -= zvysok * 100;
 	}
+
+	// desiatky
+	if ((n < 100) && (n >= 20)) {
+
+		uint64_t zvysok = ( ( n - ( n % 10 ) ) / 10 );
+		space();
+		addToBuffer(desiatky[zvysok]);
+		space();
+	}
+	// nasky
+	if ((n < 20) && (n <= 10)) {
+
+		space();
+		addToBuffer(nast[n - 10]);
+		n = 0;
+	}
+
+	// singles
+	if ((n < 10) && (n > 0)) {
+
+		space();
+		addToBuffer(jednotky[n]);
+	}
+
+	return buffer;
+}
+
+// assignment 
+
+uint64_t cifrySlovami::operator = (const uint64_t cislo) {
+
+	setCislo(cislo);
+	return getCislo();
+}
+
+// destruktor
+
+cifrySlovami::~cifrySlovami() {
+
+	vymazBuffer();			// Znic objekt a vymaz buffer
 }

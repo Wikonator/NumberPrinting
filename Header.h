@@ -10,6 +10,7 @@
 #include <cmath>
 #include <cstdint>
 #include <cstdlib>
+#include "stdafx.h"
 
 #define MAXLENGTH 1024
 
