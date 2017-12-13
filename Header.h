@@ -20,7 +20,7 @@ namespace Bank
 {
 	static const char* chyba = "error"; // why must this be const?
 
-	static const char* jednotky[] = { "jeden", "dva", "tri" ,"styri" , "pat", "sest", "sedem", "osem", "devat" };
+	static const char* jednotky[] = { "", "jeden", "dva", "tri" ,"styri" , "pat", "sest", "sedem", "osem", "devat" };
 
 	static const char* nast[] = { "desat", "jedenast", "dvanast", "trinast", "strnast", "patnast", "sestnast", "sedemnast", "osemnast", "devatnast" };
 

@@ -19,10 +19,12 @@ int main() {
 	Bank::cifrySlovami toto;
 	uint64_t cislo;
 
-	cislo = 3; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
-	cislo = 10012; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
-	cislo = 99578425; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
-	cislo = 132587459342; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
+	//cislo = 110122; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
+	cislo = 112; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
+	/*cislo = 45821; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
+	cislo = 2101; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
+	cislo = 15; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));*/
+	cislo = 47; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
 	
 	return 0;
 }

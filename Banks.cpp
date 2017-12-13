@@ -1,6 +1,7 @@
-#include "Header.h"
-#include "stdafx.h"
 
+#include <stdio.h>
+#include "stdafx.h"
+#include "Header.h"
 
 using namespace Bank;
 
@@ -100,13 +101,26 @@ const char* cifrySlovami::konverzia( const uint64_t number ) {
 	// stovky
 	if ((n < 1000) && (n >= 100)) {
 
+		bool zvysokFlag = false;
+		printf("n pri stovkach je  %lld\n", n);
 		uint64_t zvysok = ( ( n - ( n % 100 ) ) /  100 );
-		cifrySlovami objektZaujmu(zvysok);
+		if (zvysok == 1) {
+
+			
+			zvysok = 0;
+			zvysokFlag = true;
+		}
+		cifrySlovami objektZaujmu(zvysok);			// invokuje konverzia(cislo) << 
 		space();
 		addToBuffer(objektZaujmu.konverzia());
 		space();
 		addToBuffer(stovky);
+		if ((zvysok == 0) && (zvysokFlag)) {
+
+			++zvysok;
+		}
 		n -= zvysok * 100;
+		printf("stovky n je tearz: %lld\n", n);
 	}
 
 	// desiatky
@@ -116,18 +130,22 @@ const char* cifrySlovami::konverzia( const uint64_t number ) {
 		space();
 		addToBuffer(desiatky[zvysok]);
 		space();
+		printf("desiatky: n je  %lld\n", n);
+		n -= zvysok * 10;
 	}
+
 	// nasky
-	if ((n < 20) && (n <= 10)) {
+	if (n > 10 && n < 20) {
 
 		space();
 		addToBuffer(nast[n - 10]);
 		n = 0;
 	}
-
+	
 	// singles
-	if ((n < 10) && (n > 0)) {
+	if (n <= 10 && n > 0) {
 
+	//	printf("n is %lld \n", n);
 		space();
 		addToBuffer(jednotky[n]);
 	}
