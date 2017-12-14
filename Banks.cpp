@@ -102,7 +102,7 @@ const char* cifrySlovami::konverzia( const uint64_t number ) {
 	if ((n < 1000) && (n >= 100)) {
 
 		bool zvysokFlag = false;
-		printf("n pri stovkach je  %lld\n", n);
+		//printf("n pri stovkach je  %lld\n", n);
 		uint64_t zvysok = ( ( n - ( n % 100 ) ) /  100 );
 		if (zvysok == 1) {
 
@@ -120,7 +120,7 @@ const char* cifrySlovami::konverzia( const uint64_t number ) {
 			++zvysok;
 		}
 		n -= zvysok * 100;
-		printf("stovky n je tearz: %lld\n", n);
+		//printf("stovky n je tearz: %lld\n", n);
 	}
 
 	// desiatky
@@ -130,7 +130,7 @@ const char* cifrySlovami::konverzia( const uint64_t number ) {
 		space();
 		addToBuffer(desiatky[zvysok]);
 		space();
-		printf("desiatky: n je  %lld\n", n);
+		//printf("desiatky: n je  %lld\n", n);
 		n -= zvysok * 10;
 	}
 

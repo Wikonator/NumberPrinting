@@ -17,14 +17,15 @@ using namespace Bank;
 int main() {
 
 	Bank::cifrySlovami toto;
-	uint64_t cislo;
+	uint64_t cislo = 0;
+	int integer = 0;
 
-	//cislo = 110122; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
-	cislo = 112; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
-	/*cislo = 45821; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
-	cislo = 2101; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
-	cislo = 15; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));*/
-	cislo = 47; printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
+	printf("whats up? Input a number between 1 and 999999999999!\n");
+	scanf_s("%d", &integer);
+	printf("your input was: %d\n", integer);
+
+	cislo = (uint64_t)integer;
+	printf("n is %lld, %s\n", cislo, toto.konverzia(cislo));
 	
 	return 0;
 }
